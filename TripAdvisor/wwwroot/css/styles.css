@@ -1,0 +1,14 @@
+body {
+  text-align: center;
+}
+
+#navbar {
+  position: fixed;
+  top: 2%;
+  right: 2%;
+}
+.navbar-style {
+  border: 1px solid black;
+  margin: 5px;
+  padding: 5px;
+}
