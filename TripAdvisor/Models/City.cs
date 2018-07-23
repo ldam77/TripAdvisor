@@ -5,14 +5,16 @@ using TripAdvisor;
 
 namespace TripAdvisor.Models
 {
-  public class Country
+  public class City
   {
     private int id;
     private string name;
+    private int countryId;
 
-    public Country(string newName, int = newId)
+    public City(string newName, int newCountryId, int = newId)
     {
       name = newName;
+      countryId = newCountryId
       id = newId;
     }
 
@@ -26,16 +28,25 @@ namespace TripAdvisor.Models
       return name;
     }
 
+    public int GetCountryId()
+    {
+      return countryId;
+    }
+
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO countries (name) VALUES (@countriesName);";
+      cmd.CommandText = @"INSERT INTO cities (name, country_id) VALUES (@cityName, @countryName);";
       MySqlParameter newName = new MySqlParameter();
-      newName.ParameterName = "@countriesName";
+      newName.ParameterName = "@cityName";
       newName.Value = this.name;
       cmd.Parameters.Add(newName);
+      MySqlParameter newCountryId = new MySqlParameter();
+      newCountryId.ParameterName = "@countryName";
+      newCountryId.Value = this.countryId;
+      cmd.Parameters.Add(newCountryId);
       cmd.ExecuteNonQuery();
       id = (int) cmd.LastInsertedId;
       conn.Close();
@@ -45,27 +56,28 @@ namespace TripAdvisor.Models
       }
     }
 
-    public static List<Country> GetAll()
+    public static List<City> GetAll()
     {
-      List<Country> allCountries = new List<Country> {};
+      List<City> allCities = new List<City> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM countries;";
+      cmd.CommandText = @"SELECT * FROM cities;";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
         int id = rdr.GetInt32(0);
         string name = rdr.GetString(1);
-        Country newCountry = new Country(name, id);
-        allCountries.Add(newCountry);
+        int countryId = rdr.GetInt32(2);
+        City newCity = new City(name, countryId, id);
+        allCities.Add(newCity);
       }
       conn.Close();
       if (conn !=null)
       {
         conn.Dispose();
       }
-      return allCountries;
+      return allCities;
     }
 
     public static void DeleteAll()
@@ -74,7 +86,7 @@ namespace TripAdvisor.Models
       conn.Open();
 
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM countries;";
+      cmd.CommandText = @"DELETE FROM cities;";
       cmd.ExecuteNonQuery();
 
       conn.Close();
