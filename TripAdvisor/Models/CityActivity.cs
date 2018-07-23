@@ -49,7 +49,7 @@ namespace TripAdvisor.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO cities_activities (cities_id, activities_id) VALUES (@inputCityID, @inputActivityID);";
+      cmd.CommandText = @"INSERT INTO cities_activities (city_id, activity_id) VALUES (@inputCityID, @inputActivityID);";
       MySqlParameter newCityID = new MySqlParameter();
       newCityID.ParameterName = "@inputCityID";
       newCityID.Value = this.cityID;
