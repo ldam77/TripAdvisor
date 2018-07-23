@@ -1,0 +1,9 @@
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.deps.json
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.runtimeconfig.json
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.runtimeconfig.dev.json
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.csproj.CoreCompileInputs.cache
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.AssemblyInfo.cs
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.pdb
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.pdb
