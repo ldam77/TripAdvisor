@@ -11,10 +11,10 @@ namespace TripAdvisor.Models
     private string name;
     private string description;
 
-    public Activity(string newName, string newDescription, int = newId)
+    public Activity(string newName, string newDescription, int newId = 0)
     {
       name = newName;
-      description = newDescription
+      description = newDescription;
       id = newId;
     }
     public int GetId()
@@ -164,7 +164,7 @@ namespace TripAdvisor.Models
       MySqlParameter foundId = new MySqlParameter();
       foundId.ParameterName = "@idMatches";
       foundId.Value = this.id;
-      cmd.Parameters.Add(idMatches);
+      cmd.Parameters.Add(foundId);
       cmd.ExecuteNonQuery();
       conn.Close();
       if (conn != null)

@@ -10,7 +10,7 @@ namespace TripAdvisor.Models
     private int id;
     private string name;
 
-    public Country(string newName, int = newId)
+    public Country(string newName, int newId = 0)
     {
       name = newName;
       id = newId;
