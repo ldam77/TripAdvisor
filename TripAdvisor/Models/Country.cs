@@ -10,7 +10,7 @@ namespace TripAdvisor.Models
     private int id;
     private string name;
 
-    public Country(string newName, int = newId)
+    public Country(string newName, int newId = 0)
     {
       name = newName;
       id = newId;
@@ -24,6 +24,21 @@ namespace TripAdvisor.Models
     public string GetName()
     {
       return name;
+    }
+
+    public override bool Equals(System.Object otherCountry)
+    {
+      if(!(otherCountry is Country))
+      {
+        return false;
+      }
+      else
+      {
+        Country newCountry = (Country) otherCountry;
+        bool idEquality = (this.GetId() == newCountry.GetId());
+        bool nameEquality = this.GetName().Equals(newCountry.GetName());
+        return (idEquality && nameEquality);
+      }
     }
 
     public void Save()
@@ -66,6 +81,34 @@ namespace TripAdvisor.Models
         conn.Dispose();
       }
       return allCountries;
+    }
+
+    public List<City> GetCities()
+    {
+      List<City> allCities = new List<City> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM cities WHERE country_id = @countryId;";
+      MySqlParameter myCountryId = new MySqlParameter();
+      myCountryId.ParameterName = "@countryId";
+      myCountryId.Value = this.id;
+      cmd.Parameters.Add(myCountryId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        int countryId = rdr.GetInt32(2);
+        City newCity = new City(name, countryId, id);
+        allCities.Add(newCity);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return allCities;
     }
 
     public static void DeleteAll()
