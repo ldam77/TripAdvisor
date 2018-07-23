@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 23, 2018 at 08:33 PM
+-- Generation Time: Jul 23, 2018 at 10:31 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.2.1
 
@@ -70,7 +70,7 @@ CREATE TABLE `cities` (
 CREATE TABLE `cities_activities` (
   `id` int(11) NOT NULL,
   `city_id` int(11) NOT NULL,
-  `activities_id` int(11) NOT NULL
+  `activity_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
