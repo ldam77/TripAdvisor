@@ -1,3 +1,10 @@
 <h1>Activities in this City</h1>
 
+<ul>
+  @foreach (var activity in Model)
+  {
+    <li>@activity.GetActivity()</li>
+  }
+</ul>
+
 <a href="/">Home</a>
