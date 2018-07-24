@@ -2,4 +2,13 @@
   Layout = "_Layout";
 }
 
-<h1>Countries List</h1>
+<div class="bg-panel">
+  <h1>Countries List</h1>
+
+  <ul class="no-bullet">
+    @foreach (var country in Model)
+    {
+      <li><a href="/Cities/@country.GetId()">@country.GetName()</a></li>
+    }
+  </ul>
+</div>

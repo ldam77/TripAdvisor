@@ -1,4 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
+using TripAdvisor.Models;
 
 namespace TripAdvisor.Controllers
 {
@@ -9,10 +13,11 @@ namespace TripAdvisor.Controllers
     {
       return View();
     }
-    [HttpGet("/countries")]
+    [HttpGet("/Countries")]
     public ActionResult Countries()
     {
-      return View();
+      List<Country> allCountries = Country.GetAll();
+      return View(allCountries);
     }
   }
 }

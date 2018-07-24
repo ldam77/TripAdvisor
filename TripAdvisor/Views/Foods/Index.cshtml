@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="bg-panel">
+  <h1>Food List</h1>
+
+  <ul class="no-bullet">
+    @foreach (var food in Model)
+    {
+      <li>@food.GetName()</li>
+    }
+  </ul>
+</div>

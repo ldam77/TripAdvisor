@@ -6,15 +6,15 @@ using TripAdvisor.Models;
 
 namespace TripAdvisor.Controllers
 {
-  public class ActivitiesController : Controller
+  public class FoodsController : Controller
   {
-    [HttpGet("/Activities")]
+    [HttpGet("/Foods")]
     public ActionResult Index()
     {
-      List<Activity> allActivities = Activity.GetAll();
-      return View(allActivities);
+      List<Food> allFood = Food.GetAll();
+      return View(allFood);
     }
-    [HttpGet("/Activities/new")]
+    [HttpGet("/Foods/new")]
       public ActionResult CreateForm()
       {
         return View();
