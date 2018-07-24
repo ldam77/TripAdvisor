@@ -1,7 +1,7 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "/Users/eddieharris/.nuget/packages"
+      "C:\\Users\\ldam7\\.nuget\\packages"
     ]
   }
 }
