@@ -140,7 +140,7 @@ namespace TripAdvisor.Models
   }
 }
 
-public void Edit(int id, string newName, string newDescription)
+public void Edit(string newName, string newDescription)
   {
     MySqlConnection conn = DB.Connection();
     conn.Open();
@@ -149,7 +149,7 @@ public void Edit(int id, string newName, string newDescription)
 
     MySqlParameter foodId = new MySqlParameter();
     foodId.ParameterName = "@foodId";
-    foodId.Value = id;
+    foodId.Value = this._id;
     cmd.Parameters.Add(foodId);
 
     MySqlParameter changeName = new MySqlParameter();
@@ -163,10 +163,6 @@ public void Edit(int id, string newName, string newDescription)
     cmd.Parameters.Add(changeDescription);
 
     cmd.ExecuteNonQuery();
-
-    _name = newName;
-    _description = newDescription;
-    _id = id;
 
     conn.Close();
     if (conn != null)
