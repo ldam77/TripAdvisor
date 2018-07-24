@@ -116,9 +116,5 @@ namespace TripAdvisor.Tests
 
       Assert.AreEqual(0, result.Count);
     }
-
-
-
-
   }
 }
