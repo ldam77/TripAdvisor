@@ -83,6 +83,33 @@ namespace TripAdvisor.Models
       return allCountries;
     }
 
+    public static Country Find(int inputId)
+    {
+      int id = 0;
+      string name = "";
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM countries WHERE id = @Id;";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@Id";
+      searchId.Value = inputId;
+      cmd.Parameters.Add(searchId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        id = rdr.GetInt32(0);
+        name = rdr.GetString(1);
+      }
+      Country foundCountry = new Country(name, id);
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return foundCountry;
+    }
+
     public List<City> GetCities()
     {
       List<City> allCities = new List<City> {};

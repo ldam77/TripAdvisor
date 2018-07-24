@@ -7,3 +7,12 @@
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.pdb
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.dll
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.pdb
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\bin\Debug\netcoreapp1.1\TripAdvisor.deps.json
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\bin\Debug\netcoreapp1.1\TripAdvisor.runtimeconfig.json
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\bin\Debug\netcoreapp1.1\TripAdvisor.runtimeconfig.dev.json
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.csproj.CoreCompileInputs.cache
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.AssemblyInfo.cs
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.pdb
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\bin\Debug\netcoreapp1.1\TripAdvisor.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor\bin\Debug\netcoreapp1.1\TripAdvisor.pdb

@@ -12,3 +12,17 @@
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisor.pdb
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.dll
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.pdb
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisorTests.deps.json
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisorTests.runtimeconfig.json
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisorTests.runtimeconfig.dev.json
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisorTests.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisorTests.pdb
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisor.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\bin\Debug\netcoreapp1.1\TripAdvisor.pdb
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\obj\Debug\netcoreapp1.1\TripAdvisorTests.csproj.CoreCompileInputs.cache
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\obj\Debug\netcoreapp1.1\TripAdvisorTests.AssemblyInfo.cs
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\obj\Debug\netcoreapp1.1\TripAdvisorTests.dll
+C:\Users\ldam7\Desktop\Epicodus\Csharp\TripAdvisor.Solution\TripAdvisor.Tests\obj\Debug\netcoreapp1.1\TripAdvisorTests.pdb

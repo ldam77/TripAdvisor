@@ -96,6 +96,36 @@ namespace TripAdvisor.Models
       return allCities;
     }
 
+    public static City Find(int inputId)
+    {
+      int id = 0;
+      string name = "";
+      int countryId = 0;
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM cities WHERE id = @Id;";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@Id";
+      searchId.Value = inputId;
+      cmd.Parameters.Add(searchId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        id = rdr.GetInt32(0);
+        name = rdr.GetString(1);
+        countryId = rdr.GetInt32(2);
+
+      }
+      City foundCity = new City(name, countryId, id);
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return foundCity;
+    }
+
     public List<Attraction> GetAttractions()
     {
       List<Attraction> allAttractions = new List<Attraction> {};
