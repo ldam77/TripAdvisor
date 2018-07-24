@@ -33,6 +33,22 @@ namespace TripAdvisor.Models
       return _description;
     }
 
+    public override bool Equals(System.Object otherFood)
+    {
+      if (!(otherFood is Food))
+      {
+       return false;
+      }
+      else
+      {
+        Food newFood = (Food) otherFood;
+        bool idEqual = (this.GetId() == newFood.GetId());
+        bool nameEqual = (this.GetName() == newFood.GetName());
+        bool descriptionEqual = (this.GetDescription() == newFood.GetDescription());
+        return (idEqual && nameEqual && descriptionEqual);
+      }
+    }
+
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
@@ -64,7 +80,7 @@ namespace TripAdvisor.Models
     {
       int foodId = rdr.GetInt32(0);
       string foodName = rdr.GetString(1);
-      string foodDescription = rdr.GetString(1);
+      string foodDescription = rdr.GetString(2);
       Food newFood = new Food(foodName, foodDescription, foodId);
       allFood.Add(newFood);
     }
@@ -124,7 +140,40 @@ namespace TripAdvisor.Models
   }
 }
 
-//Edit
+public void Edit(int id, string newName, string newDescription)
+  {
+    MySqlConnection conn = DB.Connection();
+    conn.Open();
+    var cmd = conn.CreateCommand() as MySqlCommand;
+    cmd.CommandText = @"UPDATE food SET name = @name, description = @description WHERE id = @foodId;";
+
+    MySqlParameter foodId = new MySqlParameter();
+    foodId.ParameterName = "@foodId";
+    foodId.Value = id;
+    cmd.Parameters.Add(foodId);
+
+    MySqlParameter changeName = new MySqlParameter();
+    changeName.ParameterName = "@name";
+    changeName.Value = newName;
+    cmd.Parameters.Add(changeName);
+
+    MySqlParameter changeDescription = new MySqlParameter();
+    changeDescription.ParameterName = "@description";
+    changeDescription.Value = newDescription;
+    cmd.Parameters.Add(changeDescription);
+
+    cmd.ExecuteNonQuery();
+
+    _name = newName;
+    _description = newDescription;
+    _id = id;
+
+    conn.Close();
+    if (conn != null)
+    {
+      conn.Dispose();
+    }
+  }
 
 
 
