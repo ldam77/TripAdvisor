@@ -33,18 +33,34 @@ namespace TripAdvisor.Models
       return countryId;
     }
 
+    public override bool Equals(System.Object otherCity)
+    {
+      if(!(otherCity is City))
+      {
+        return false;
+      }
+      else
+      {
+        City newCity = (City) otherCity;
+        bool idEquality = (this.GetId() == newCity.GetId());
+        bool nameEquality = this.GetName().Equals(newCity.GetName());
+        bool countryIdEquality = this.GetCountryId().Equals(newCity.GetCountryId());
+        return (idEquality && nameEquality && countryIdEquality);
+      }
+    }
+
     public void Save()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO cities (name, country_id) VALUES (@cityName, @countryName);";
+      cmd.CommandText = @"INSERT INTO cities (name, country_id) VALUES (@cityName, @countryId);";
       MySqlParameter newName = new MySqlParameter();
       newName.ParameterName = "@cityName";
       newName.Value = this.name;
       cmd.Parameters.Add(newName);
       MySqlParameter newCountryId = new MySqlParameter();
-      newCountryId.ParameterName = "@countryName";
+      newCountryId.ParameterName = "@countryId";
       newCountryId.Value = this.countryId;
       cmd.Parameters.Add(newCountryId);
       cmd.ExecuteNonQuery();
@@ -78,6 +94,35 @@ namespace TripAdvisor.Models
         conn.Dispose();
       }
       return allCities;
+    }
+
+    public List<Attraction> GetAttractions()
+    {
+      List<Attraction> allAttractions = new List<Attraction> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM attractions WHERE city_id = @cityId;";
+      MySqlParameter myCityId = new MySqlParameter();
+      myCityId.ParameterName = "@cityId";
+      myCityId.Value = this.id;
+      cmd.Parameters.Add(myCityId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        int cityId = rdr.GetInt32(2);
+        string description = rdr.GetString(3);
+        Attraction newAttraction = new Attraction(name, cityId, description, id);
+        allAttractions.Add(newAttraction);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return allAttractions;
     }
 
     public static void DeleteAll()

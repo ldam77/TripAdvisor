@@ -56,7 +56,6 @@ namespace TripAdvisor.Tests
       testFood.Save();
       List<Food> result = Food.GetAll();
       List<Food> testList = new List<Food>{testFood};
-
       CollectionAssert.AreEqual(testList, result);
     }
 
@@ -64,9 +63,13 @@ namespace TripAdvisor.Tests
     [TestMethod]
     public void GetAll_Food()
     {
-      int result = Food.GetAll().Count;
+      Food testFood = new Food("food", "description");
 
-      Assert.AreEqual(0, result);
+      testFood.Save();
+      List<Food> result = Food.GetAll();
+      int resultNumber = Food.GetAll().Count;
+
+      Assert.AreEqual(1, resultNumber);
     }
 
     //Find
@@ -79,6 +82,18 @@ namespace TripAdvisor.Tests
       Food foundFood = Food.Find(testFood.GetId());
 
       Assert.AreEqual(testFood.GetName(), foundFood.GetName());
+    }
+
+    //Find
+    [TestMethod]
+    public void Edit_EditFoodInDatabase()
+    {
+      Food testFood = new Food("food", "description");
+      testFood.Save();
+      testFood.Edit(testFood.GetId(), "newfood", "newdescription");
+      Food foundFood = Food.Find(testFood.GetId());
+
+      Assert.AreEqual("newfood", foundFood.GetName());
     }
 
 
