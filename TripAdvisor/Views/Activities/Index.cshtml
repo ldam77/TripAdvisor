@@ -2,5 +2,15 @@
   Layout = "_Layout";
 }
 
-<h1>Activities List</h1>
-<h3><a href='/Activities/new'>Add New Activities</a></h3>
+<div class="bg-panel">
+  <h1>Activities List</h1>
+
+  <ul class="no-bullet">
+    @foreach (var activity in Model)
+    {
+      <li>@activity.GetName()</li>
+    }
+  </ul>
+
+  <h3><a href='/Activities/new'>Add New Activities</a></h3>
+</div>

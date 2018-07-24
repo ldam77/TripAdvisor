@@ -1,0 +1,11 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="bg-panel">
+  <h1>Visiting @Model.GetName()</h1>
+
+  <a href="/Cities/@Model.GetId()/Attraction">Attractions</a>
+  <a href="/Cities/@Model.GetId()/Activities">Activities</a>
+  <a href="/Cities/@Model.GetId()/Foods">Foods</a>
+</div>

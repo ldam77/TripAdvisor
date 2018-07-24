@@ -2,6 +2,7 @@ body {
   text-align: center;
   background: url('/img/world_1.jpg') no-repeat center fixed;
   background-size: cover;
+  font-size: 2em;
 }
 
 #navbar {
@@ -11,13 +12,24 @@ body {
 }
 .navbar-style {
   border: 1px solid black;
-  margin: 5px;
-  padding: 5px;
 }
 
-/* div {
-  background-color: rgba(255, 255, 255, 0.5);
-  border: 5px solid black;
-  padding: 5%;
-  margin: 5%;
-} */
+.horizontal-bar {
+  list-style-type: none;
+  margin: auto;
+}
+
+.horizontal-bar li {
+  display: inline-block;
+  padding: 1% 5% 1% 5%;
+}
+
+.no-bullet {
+  list-style-type: none;
+}
+
+.bg-panel {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 90%;
+  height: 90%;
+}

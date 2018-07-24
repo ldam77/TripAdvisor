@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="bg-panel">
+  <h1>Attraction List</h1>
+
+  <ul class="no-bullet">
+    @foreach (var attraction in Model)
+    {
+      <li>@attraction.GetName()</li>
+    }
+  </ul>
+</div>
