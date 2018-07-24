@@ -46,6 +46,22 @@ namespace TripAdvisor.Tests
 
       Assert.AreEqual(testId, result);
     }
+//GetDescription
+    [TestMethod]
+    public void getDescriptionFromFood()
+    {
+      Activity testActivity = new Activity("food", "description");
+      testActivity.Save();
+
+      Activity savedActivity = Activity.GetAll()[0];
+
+      string result = savedActivity.GetDescription();
+      string testId = testActivity.GetDescription();
+
+      Assert.AreEqual(testId, result);
+    }
+
+
 
     // save
     [TestMethod]
@@ -90,10 +106,22 @@ namespace TripAdvisor.Tests
     {
       Food testFood = new Food("food", "description");
       testFood.Save();
-      testFood.Edit(testFood.GetId(), "newfood", "newdescription");
+      testFood.Edit("newfood", "newdescription");
       Food foundFood = Food.Find(testFood.GetId());
 
       Assert.AreEqual("newfood", foundFood.GetName());
+    }
+
+    //Delete All
+    [TestMethod]
+    public void Delete_DeleteAllActivitiesInDatabase()
+    {
+      Food testFood = new Food("food", "description");
+      testFood.Save();
+      Food.DeleteAll();
+      List<Food> result = Food.GetAll();
+
+      Assert.AreEqual(0, result.Count);
     }
 
 

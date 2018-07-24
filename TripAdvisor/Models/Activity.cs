@@ -151,16 +151,23 @@ namespace TripAdvisor.Models
        return foundActivity;
     }
 
-    public void EditActivityDescription(string newDescription)
+    public void EditActivity(string newName, string newDescription)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE activities SET description = @activityDescription WHERE id = @idMatches;";
+      cmd.CommandText = @"UPDATE activities SET name = @name, description = @activityDescription WHERE id = @idMatches;";
+
+      MySqlParameter editName = new MySqlParameter();
+      editName.ParameterName = "@name";
+      editName.Value = newName;
+      cmd.Parameters.Add(editName);
+
       MySqlParameter editDescription = new MySqlParameter();
       editDescription.ParameterName = "@activityDescription";
       editDescription.Value = newDescription;
       cmd.Parameters.Add(editDescription);
+
       MySqlParameter foundId = new MySqlParameter();
       foundId.ParameterName = "@idMatches";
       foundId.Value = this.id;
