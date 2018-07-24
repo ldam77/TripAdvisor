@@ -7,3 +7,8 @@
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/bin/Debug/netcoreapp1.1/TripAdvisor.pdb
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.dll
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor/obj/Debug/netcoreapp1.1/TripAdvisor.pdb
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.csproj.CoreCompileInputs.cache
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.AssemblyInfoInputs.cache
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.AssemblyInfo.cs
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.dll
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor\obj\Debug\netcoreapp1.1\TripAdvisor.pdb

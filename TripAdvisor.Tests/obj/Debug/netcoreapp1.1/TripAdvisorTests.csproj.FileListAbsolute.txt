@@ -12,3 +12,5 @@
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisor.pdb
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.dll
 /Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.pdb
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor.Tests\obj\Debug\netcoreapp1.1\TripAdvisorTests.dll
+C:\Users\jean8\onedrive\desktop\TripAdvisor.Solution\TripAdvisor.Tests\obj\Debug\netcoreapp1.1\TripAdvisorTests.pdb
