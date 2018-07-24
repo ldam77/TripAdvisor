@@ -16,7 +16,7 @@ namespace TripAdvisor.Tests
     }
     public foodTests()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=trip_advisor_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=trip_advisor_test;";
     }
     // Get Name
     [TestMethod]
