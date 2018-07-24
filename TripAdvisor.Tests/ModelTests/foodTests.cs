@@ -12,7 +12,6 @@ namespace TripAdvisor.Tests
     public void Dispose()
     {
       Food.DeleteAll();
-
     }
     public foodTests()
     {
