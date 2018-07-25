@@ -49,15 +49,15 @@ namespace TripAdvisor.Tests
     [TestMethod]
     public void getDescriptionFromFood()
     {
-      Activity testActivity = new Activity("food", "description");
-      testActivity.Save();
+      Food testFood = new Food("food", "description");
+      testFood.Save();
 
-      Activity savedActivity = Activity.GetAll()[0];
+      Food savedFood = Food.GetAll()[0];
 
-      string result = savedActivity.GetDescription();
-      string testId = testActivity.GetDescription();
+      string result = savedFood.GetDescription();
+      string testDescription = testFood.GetDescription();
 
-      Assert.AreEqual(testId, result);
+      Assert.AreEqual(testDescription, result);
     }
 
 

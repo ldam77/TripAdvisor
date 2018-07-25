@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RecipeBox.Models;
+using TripAdvisor.Models;
 using System;
 using System.Collections.Generic;
 

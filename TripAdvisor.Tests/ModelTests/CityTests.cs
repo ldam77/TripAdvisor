@@ -104,5 +104,41 @@ namespace TripAdvisor.Tests
       // Assert
       CollectionAssert.AreEqual(testAttractions, resultAttractions);
     }
+    [TestMethod]
+    public void GetActivities_RetrievesAllActivitiesWithCityId_ActivityList()
+    {
+      // Arrange
+      City testCity = new City("testCity", 1);
+      testCity.Save();
+      Activity testActivity = new Activity("testActivity", "");
+      testActivity.Save();
+      CityActivity testCityActivity = new CityActivity(testCity.GetId(), testActivity.GetId());
+      testCityActivity.Save();
+      List<Activity> testActivities = new List<Activity> {testActivity};
+
+      // Act
+      List<Activity> resultActivities = testCity.GetActivities();
+
+      // Assert
+      CollectionAssert.AreEqual(testActivities, resultActivities);
+    }
+    [TestMethod]
+    public void GetFoods_RetrievesAllFoodsWithCityId_FoodList()
+    {
+      // Arrange
+      City testCity = new City("testCity", 1);
+      testCity.Save();
+      Food testFood = new Food("testFood", "");
+      testFood.Save();
+      CityFood testCityFood = new CityFood(testCity.GetId(), testFood.GetId());
+      testCityFood.Save();
+      List<Food> testFoods = new List<Food> {testFood};
+
+      // Act
+      List<Food> resultFoods = testCity.GetFoods();
+
+      // Assert
+      CollectionAssert.AreEqual(testFoods, resultFoods);
+    }
   }
 }
