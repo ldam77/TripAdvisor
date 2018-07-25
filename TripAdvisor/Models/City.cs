@@ -126,6 +126,34 @@ namespace TripAdvisor.Models
       return foundCity;
     }
 
+    public static List<City> FindByName(string inputName)
+    {
+      List<City> foundCities = new List<City> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM cities WHERE name LIKE @Name;";
+      MySqlParameter searchName = new MySqlParameter();
+      searchName.ParameterName = "@Name";
+      searchName.Value = inputName + "%";
+      cmd.Parameters.Add(searchName);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        int countryId = rdr.GetInt32(2);
+        City foundCity = new City(name, countryId, id);
+        foundCities.Add(foundCity);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return foundCities;
+    }
+
     public List<Attraction> GetAttractions()
     {
       List<Attraction> allAttractions = new List<Attraction> {};
