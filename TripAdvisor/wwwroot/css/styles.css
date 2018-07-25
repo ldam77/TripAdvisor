@@ -34,6 +34,7 @@ h1 {
 .bg-panel {
   background-color: rgba(255, 255, 255, 0.6);
   width: 90%;
-  height: 90%;
+  min-height: 100vh;
   padding: 1%;
+  background-size: cover;
 }

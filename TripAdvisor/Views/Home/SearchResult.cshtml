@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="bg-panel">
+  <h1>Search Result</h1>
+
+  @if (Model.Count == 0)
+  {
+    <h3>No match found</h3>
+  }
+  else
+  {
+    <ul class="no-bullet">
+      @foreach (var result in Model)
+      {
+        <li>@result.GetName()</li>
+      }
+    </ul>
+  }
+
+</div>

@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="bg-panel">
+  <h1>Search</h1>
+  <form class="" action="/Search" method="post">
+    <div class="radio">
+     <div>
+       <label>
+        <input type="radio" name="searchType" value="forCity" checked>
+        Search for a city
+      </label>
+    </div>
+    <div>
+      <label>
+       <input type="radio" name="searchType" value="forAttraction">
+       Search for attraction
+      </label>
+    </div>
+    <div>
+      <label>
+       <input type="radio" name="searchType" value="forActivity">
+       Search for activity
+      </label>
+    </div>
+   </div>
+   <div class="">
+     <input type="text" name="searchTerm" required>
+   </div>
+   <button type="submit" name="button">Search</button>
+  </form>
+</div>
