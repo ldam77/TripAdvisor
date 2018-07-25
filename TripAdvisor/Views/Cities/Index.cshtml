@@ -4,20 +4,26 @@
 }
 
 <div class="bg-panel">
-  @if (Model.Count == 0)
+  @if (Model["allCities"].Count == 0)
   {
     <h1>City List</h1>
     <h3>No Record Found</h3>
   }
   else
   {
-    <h1>@Country.Find(Model[0].GetCountryId()).GetName()'s City List</h1>
+    <h1>@Model["selectedCountry"].GetName()'s City List</h1>
   }
 
   <ul class="no-bullet">
-    @foreach (var city in Model)
+    @foreach (var city in Model["allCities"])
     {
       <li><a href="/Cities/@city.GetId()">@city.GetName()</a></li>
     }
   </ul>
+
+  <form class="" action='/Cities/@Model["selectedCountry"].GetId()/Add' method="post">
+    <label for="cityName">Enter a new city:</label>
+    <input type="text" name="cityName" required>
+    <button type="submit">ADD</button>
+  </form>
 </div>

@@ -29,7 +29,19 @@ namespace TripAdvisor.Controllers
     {
       if (searchType.Equals("forCity"))
       {
-        return View("../Cities/Index", City.FindByName(searchTerm));
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        List<City> allCities = City.FindByName(searchTerm);
+        if (allCities.Count > 0){
+          Country selectedCountry = Country.Find(allCities[0].GetCountryId());
+          model.Add("selectedCountry", selectedCountry);
+        }
+        else
+        {
+          Country selectedCountry = new Country("");
+          model.Add("selectedCountry", selectedCountry);
+        }
+        model.Add("allCities", allCities);
+        return View("../Cities/Index", model);
       }
       else if (searchType.Equals("forAttraction"))
       {
