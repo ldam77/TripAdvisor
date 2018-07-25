@@ -29,16 +29,23 @@ namespace TripAdvisor.Controllers
     {
       if (searchType.Equals("forCity"))
       {
-        return View("SearchResult", City.FindByName(searchTerm));
+        return View("../Cities/Index", City.FindByName(searchTerm));
       }
       else if (searchType.Equals("forAttraction"))
       {
-        return View("SearchResult", Attraction.FindByName(searchTerm));
+        return View("../Attractions/Index", Attraction.FindByName(searchTerm));
       }
       else
       {
-        return View("SearchResult", Activity.FindByActivityName(searchTerm));
+        return View("../Activities/Index", Activity.FindByActivityName(searchTerm));
       }
+    }
+    [HttpPost("/Countries/new")]
+    public ActionResult Add(string countryName)
+    {
+      Country newCountry = new Country(countryName);
+      newCountry.Save();
+      return RedirectToAction("Countries");
     }
   }
 }

@@ -8,7 +8,13 @@
   <ul class="no-bullet">
     @foreach (var country in Model)
     {
-      <li><a href="/Cities/@country.GetId()">@country.GetName()</a></li>
+      <li><a href="/Cities/Country=@country.GetId()">@country.GetName()</a></li>
     }
   </ul>
+
+  <form class="" action="/Countries/new" method="post">
+    <label for="countryName">Add a new country</label>
+    <input type="text" name="countryName" required>
+    <button type="submit">ADD</button>
+  </form>
 </div>

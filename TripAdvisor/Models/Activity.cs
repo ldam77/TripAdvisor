@@ -132,7 +132,7 @@ namespace TripAdvisor.Models
       cmd.CommandText = @"SELECT * FROM activities WHERE name LIKE @foundName;";
       MySqlParameter foundActivityName = new MySqlParameter();
       foundActivityName.ParameterName = "@foundName";
-      foundActivityName.Value = activityName;
+      foundActivityName.Value = activityName + "%";
       cmd.Parameters.Add(foundActivityName);
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
