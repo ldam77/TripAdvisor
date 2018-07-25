@@ -9,6 +9,11 @@ h1 {
   text-align: center;
 }
 
+h3 {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 #navbar {
   text-align: left;
   list-style-type: none;

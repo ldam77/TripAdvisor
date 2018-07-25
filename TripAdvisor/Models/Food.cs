@@ -125,6 +125,33 @@ namespace TripAdvisor.Models
    return foundFood;
  }
 
+public static List<Food> FindByName(string name)
+{
+  List<Food> allFood = new List<Food> {};
+  MySqlConnection conn = DB.Connection();
+  conn.Open();
+  var cmd = conn.CreateCommand() as MySqlCommand;
+  cmd.CommandText = @"SELECT * FROM food WHERE name LIKE @food;";
+  MySqlParameter thisFood = new MySqlParameter();
+  thisFood.ParameterName = "@food";
+  thisFood.Value = name + "%";
+  cmd.Parameters.Add(thisFood);
+  var rdr = cmd.ExecuteReader() as MySqlDataReader;
+  while (rdr.Read())
+  {
+    int foodId = rdr.GetInt32(0);
+    string foodName= rdr.GetString(1);
+    string foodDescription = rdr.GetString(2);
+    Food foundFood = new Food(foodName, foodDescription, foodId);
+    allFood.Add(foundFood);
+  }
+  conn.Close();
+  if (conn != null)
+  {
+    conn.Dispose();
+  }
+  return allFood;
+}
 
  public static void DeleteAll()
 {
@@ -170,8 +197,5 @@ public void Edit(string newName, string newDescription)
       conn.Dispose();
     }
   }
-
-
-
 }
 }

@@ -4,7 +4,15 @@
 }
 
 <div class="bg-panel">
-  <h1>@Country.Find(Model[0].GetCountryId()).GetName()'s City List</h1>
+  @if (Model.Count == 0)
+  {
+    <h1>City List</h1>
+    <h3>No Record Found</h3>
+  }
+  else
+  {
+    <h1>@Country.Find(Model[0].GetCountryId()).GetName()'s City List</h1>
+  }
 
   <ul class="no-bullet">
     @foreach (var city in Model)

@@ -5,7 +5,48 @@
 <div class="bg-panel">
   <h1>Visiting @Model.GetName()</h1>
 
-  <a href="/Cities/@Model.GetId()/Attraction">Attractions</a>
-  <a href="/Cities/@Model.GetId()/Activities">Activities</a>
-  <a href="/Cities/@Model.GetId()/Foods">Foods</a>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Attractions</h3>
+      <ul class="no-bullet">
+        @foreach (var attraction in Model.GetAttractions())
+        {
+          <li>@attraction.GetName()</li>
+        }
+      </ul>
+      <form class="" action="/Cities/@Model.GetId()/AddAttraction" method="post">
+        <label for="attractionName">Enter attraction name:</label>
+        <input type="text" name="attractionName" required>
+        <button type="submit">ADD</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <h3>Activities</h3>
+      <ul class="no-bullet">
+        @foreach (var activity in Model.GetActivities())
+        {
+          <li>@activity.GetName()</li>
+        }
+      </ul>
+      <form class="" action="/Cities/@Model.GetId()/AddActivity" method="post">
+        <label for="activityName">Enter activity name:</label>
+        <input type="text" name="activityName" required>
+        <button type="submit">ADD</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <h3>Food</h3>
+      <ul class="no-bullet">
+        @foreach (var food in Model.GetFoods())
+        {
+          <li>@food.GetName()</li>
+        }
+      </ul>
+      <form class="" action="/Cities/@Model.GetId()/AddFood" method="post">
+        <label for="foodName">Enter food name:</label>
+        <input type="text" name="foodName" required>
+        <button type="submit">ADD</button>
+      </form>
+    </div>
+  </div>
 </div>
