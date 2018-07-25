@@ -91,5 +91,19 @@ namespace TripAdvisor.Tests
       //Assert
       Assert.AreEqual(testAttraction, resultById);
     }
+    [TestMethod]
+    public void FindByName_FindAttractionsInDatabase_AttractionList()
+    {
+      //Arrange
+      Attraction testAttraction = new Attraction("testName", 1, "testDescription");
+      testAttraction.Save();
+      List<Attraction> testList = new List<Attraction> {testAttraction};
+
+      //Act
+      List<Attraction> resultList = Attraction.FindByName(testAttraction.GetName());
+
+      //Assert
+      CollectionAssert.AreEqual(testList, resultList);
+    }
   }
 }

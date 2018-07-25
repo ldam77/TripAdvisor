@@ -89,6 +89,20 @@ namespace TripAdvisor.Tests
       Assert.AreEqual(testCity, resultById);
     }
     [TestMethod]
+    public void FindByName_FindCitiesInDatabase_CityList()
+    {
+      //Arrange
+      City testCity = new City("testName", 1);
+      testCity.Save();
+      List<City> testList = new List<City> {testCity};
+
+      //Act
+      List<City> resultList = City.FindByName(testCity.GetName());
+
+      //Assert
+      CollectionAssert.AreEqual(testList, resultList);
+    }
+    [TestMethod]
     public void GetAttractions_RetrievesAllAttractionsWithCityId_AttractionList()
     {
       // Arrange

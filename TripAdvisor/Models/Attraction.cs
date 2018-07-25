@@ -140,6 +140,35 @@ namespace TripAdvisor.Models
       return foundAttraction;
     }
 
+    public static List<Attraction> FindByName(string inputName)
+    {
+      List<Attraction> foundAttractions = new List<Attraction> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM attractions WHERE name LIKE @Name;";
+      MySqlParameter searchName = new MySqlParameter();
+      searchName.ParameterName = "@Name";
+      searchName.Value = inputName + "%";
+      cmd.Parameters.Add(searchName);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        int cityId = rdr.GetInt32(2);
+        string description = rdr.GetString(3);
+        Attraction foundAttraction = new Attraction(name, cityId, description, id);
+        foundAttractions.Add(foundAttraction);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return foundAttractions;
+    }
+
     public static void DeleteAll()
     {
       MySqlConnection conn = DB.Connection();
