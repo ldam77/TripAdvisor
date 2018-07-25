@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RecipeBox.Models;
+using TripAdvisor.Models;
 using System;
 using System.Collections.Generic;
 
@@ -26,7 +26,7 @@ namespace TripAdvisor.Tests
 
       // act
       int resultCityId = testCityFood.GetCityID();
-      int resultFoodId = testCityFood.GetActivityID();
+      int resultFoodId = testCityFood.GetFoodID();
 
       // assert
       Assert.AreEqual(testCityId, resultCityId);

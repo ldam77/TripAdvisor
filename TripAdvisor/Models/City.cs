@@ -155,13 +155,69 @@ namespace TripAdvisor.Models
       return allAttractions;
     }
 
+    public List<Activity> GetActivities()
+    {
+      List<Activity> allActivities = new List<Activity> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT activities.* FROM activities JOIN cities_activities ON (activities.id = cities_activities.activity_id) JOIN cities ON (cities_activities.city_id = cities.id) WHERE city_id = @cityId;";
+      MySqlParameter myCityId = new MySqlParameter();
+      myCityId.ParameterName = "@cityId";
+      myCityId.Value = this.id;
+      cmd.Parameters.Add(myCityId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        string description = rdr.GetString(2);
+        Activity newActivity = new Activity(name, description, id);
+        allActivities.Add(newActivity);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return allActivities;
+    }
+
+    public List<Food> GetFoods()
+    {
+      List<Food> allFoods = new List<Food> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT food.* FROM food JOIN cities_food ON (food.id = cities_food.food_id) JOIN cities ON (cities_food.city_id = cities.id) WHERE city_id = @cityId;";
+      MySqlParameter myCityId = new MySqlParameter();
+      myCityId.ParameterName = "@cityId";
+      myCityId.Value = this.id;
+      cmd.Parameters.Add(myCityId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        string description = rdr.GetString(2);
+        Food newFood = new Food(name, description, id);
+        allFoods.Add(newFood);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return allFoods;
+    }
+
     public static void DeleteAll()
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
 
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM cities;";
+      cmd.CommandText = @"DELETE FROM cities; DELETE FROM food; DELETE FROM activities;";
       cmd.ExecuteNonQuery();
 
       conn.Close();
