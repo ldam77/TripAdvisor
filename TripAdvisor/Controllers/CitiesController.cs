@@ -11,13 +11,24 @@ namespace TripAdvisor.Controllers
     [HttpGet("/Cities/Country={countryId}")]
     public ActionResult Index(int countryId)
     {
-      List<City> allCities = Country.Find(countryId).GetCities();
-      return View(allCities);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Country selectedCountry = Country.Find(countryId);
+      List<City> allCities = selectedCountry.GetCities();
+      model.Add("selectedCountry", selectedCountry);
+      model.Add("allCities", allCities);
+      return View(model);
     }
     [HttpGet("/Cities/{cityId}")]
     public ActionResult Detail(int cityId)
     {
       return View(City.Find(cityId));
+    }
+    [HttpPost("/Cities/{countryId}/Add")]
+    public ActionResult Add(int countryId, string cityName)
+    {
+      City newCity = new City(cityName, countryId);
+      newCity.Save();
+      return RedirectToAction("Index", new { id = countryId});
     }
     [HttpPost("/Cities/{cityId}/AddAttraction")]
     public ActionResult AddAttraction(string attractionName, int cityId)
