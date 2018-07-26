@@ -14,7 +14,7 @@ namespace TripAdvisor.Tests
     }
     public CityTests()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=trip_advisor_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=trip_advisor_test;";
     }
     [TestMethod]
     public void GetTest_ReturnDataField()
@@ -87,20 +87,6 @@ namespace TripAdvisor.Tests
 
       //Assert
       Assert.AreEqual(testCity, resultById);
-    }
-    [TestMethod]
-    public void FindByName_FindCitiesInDatabase_CityList()
-    {
-      //Arrange
-      City testCity = new City("testName", 1);
-      testCity.Save();
-      List<City> testList = new List<City> {testCity};
-
-      //Act
-      List<City> resultList = City.FindByName(testCity.GetName());
-
-      //Assert
-      CollectionAssert.AreEqual(testList, resultList);
     }
     [TestMethod]
     public void GetAttractions_RetrievesAllAttractionsWithCityId_AttractionList()

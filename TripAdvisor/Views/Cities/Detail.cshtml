@@ -25,7 +25,7 @@
       <ul class="no-bullet">
         @foreach (var activity in Model.GetActivities())
         {
-          <li>@activity.GetName()</li>
+          <li><a href="/Activities/@activity.GetId()/edit">@activity.GetName()</a></li>
         }
       </ul>
       <form class="" action="/Cities/@Model.GetId()/AddActivity" method="post">
@@ -39,7 +39,7 @@
       <ul class="no-bullet">
         @foreach (var food in Model.GetFoods())
         {
-          <li>@food.GetName()</li>
+          <li><a href="/Foods/@food.GetId()/edit">@food.GetName()</a></li>
         }
       </ul>
       <form class="" action="/Cities/@Model.GetId()/AddFood" method="post">

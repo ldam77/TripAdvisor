@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="bg-panel">
+  <h1><a href="/Cities/@Model["City"].GetId()">@Model["City"].GetName()</a></h1>
+  <h2>@Model["Food"].GetName()</h2>
+  <h2>Description: @Model["Food"].GetDescription()</h2>
+  </br>
+
+
+
+  <ul class="no-bullet">
+
+
+<form class="" action="/Foods/@Model["Food"].GetId()/edit/new" method="post">
+
+    <label for="new-name">Edit food name:</label>
+    <input type="text" name="new-name" required>
+
+    <label for="new-description">Enter/Add food description:</label>
+    <input type="text" name="new-description" required>
+    <button type="submit">ADD</button>
+  </form>
+
+
+  </ul>
+</div>

@@ -132,7 +132,7 @@ namespace TripAdvisor.Models
       cmd.CommandText = @"SELECT * FROM activities WHERE name LIKE @foundName;";
       MySqlParameter foundActivityName = new MySqlParameter();
       foundActivityName.ParameterName = "@foundName";
-      foundActivityName.Value = activityName + "%";
+      foundActivityName.Value = activityName;
       cmd.Parameters.Add(foundActivityName);
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
@@ -196,5 +196,36 @@ namespace TripAdvisor.Models
          conn.Dispose();
        }
     }
+    public List<City> GetCitiesbyActivityId()
+    {
+      List<City> allCities = new List<City> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT cities.* FROM activities
+      JOIN cities_activities ON (activities.id = cities_activities.activity_id)
+      JOIN cities ON (cities_activities.city_id = cities.id)
+      WHERE activities.id = @activitiesId;";
+      MySqlParameter myActivityId = new MySqlParameter();
+      myActivityId.ParameterName = "@activitiesId";
+      myActivityId.Value = this.id;
+      cmd.Parameters.Add(myActivityId);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int id = rdr.GetInt32(0);
+        string name = rdr.GetString(1);
+        int countryId = rdr.GetInt32(2);
+        City newCity = new City(name, countryId, id);
+        allCities.Add(newCity);
+      }
+      conn.Close();
+      if (conn !=null)
+      {
+        conn.Dispose();
+      }
+      return allCities;
+    }
+
   }
 }
