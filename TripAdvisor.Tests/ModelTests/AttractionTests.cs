@@ -105,5 +105,32 @@ namespace TripAdvisor.Tests
       //Assert
       CollectionAssert.AreEqual(testList, resultList);
     }
+    [TestMethod]
+    public void EditDescription_ChangeAttractionDescriptionInDatabase_Attraction()
+    {
+      // Arrange
+      Attraction testAttraction = new Attraction("testAttraction", 1, "testDescription");
+      testAttraction.Save();
+      string testDescription = "testDescription2";
+
+      // Act
+      testAttraction.EditDescription(testDescription);
+
+      // Assert
+      Assert.AreEqual(testDescription, Attraction.Find(testAttraction.GetId()).GetDescription());
+    }
+    [TestMethod]
+    public void Delete_DeleteAttractionFromDatabase_Attraction()
+    {
+      // Arrange
+      Attraction testAttraction = new Attraction("testName", 1, "testDescription");
+      testAttraction.Save();
+
+      // Act
+      testAttraction.Delete();
+
+      // Assert
+      Assert.AreEqual(0, Attraction.Find(testAttraction.GetId()).GetId());
+    }
   }
 }
