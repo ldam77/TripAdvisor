@@ -169,6 +169,28 @@ namespace TripAdvisor.Models
       return foundAttractions;
     }
 
+    public void EditDescription(string newDescription)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE attractions SET description = @newDescription WHERE id = @searchId;";
+      MySqlParameter editDescription = new MySqlParameter();
+      editDescription.ParameterName = "@newDescription";
+      editDescription.Value = newDescription;
+      cmd.Parameters.Add(editDescription);
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = this.id;
+      cmd.Parameters.Add(searchId);
+      cmd.ExecuteNonQuery();
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
     public static void DeleteAll()
     {
       MySqlConnection conn = DB.Connection();
