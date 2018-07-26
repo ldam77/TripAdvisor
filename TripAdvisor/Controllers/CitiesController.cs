@@ -18,11 +18,14 @@ namespace TripAdvisor.Controllers
       model.Add("allCities", allCities);
       return View(model);
     }
+
+
     [HttpGet("/Cities/{cityId}")]
     public ActionResult Detail(int cityId)
     {
       return View(City.Find(cityId));
     }
+
     [HttpPost("/Cities/{countryId}/Add")]
     public ActionResult Add(int countryId, string cityName)
     {

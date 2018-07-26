@@ -1,0 +1,14 @@
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisorTests.deps.json
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisorTests.runtimeconfig.json
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisorTests.runtimeconfig.dev.json
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisorTests.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisorTests.pdb
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisor.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/bin/Debug/netcoreapp1.1/TripAdvisor.pdb
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.csproj.CoreCompileInputs.cache
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.AssemblyInfo.cs
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.dll
+/Users/eddieharris/Desktop/TripAdvisor.Solution/TripAdvisor.Tests/obj/Debug/netcoreapp1.1/TripAdvisorTests.pdb

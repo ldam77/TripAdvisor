@@ -15,7 +15,7 @@ namespace TripAdvisor.Tests
     }
     public foodTests()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=trip_advisor_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=trip_advisor_test;";
     }
     // Get Name
     [TestMethod]
@@ -122,5 +122,20 @@ namespace TripAdvisor.Tests
 
       Assert.AreEqual(0, result.Count);
     }
+
+    [TestMethod]
+public void GetCitiesByfoodId()
+{
+  City testCity1 = new City("testName", 1);
+  testCity1.Save();
+  Food testFood1 = new Food("test1", "testDescription");
+  testFood1.Save();
+
+  CityFood newPair = new CityFood(testCity1.GetId(), testFood1.GetId());
+  newPair.Save();
+
+  List<City> testCity = testFood1.GetCitiesbyFoodId();
+  Assert.AreEqual(testCity1.GetId(), testCity[0].GetId());
+}
   }
 }

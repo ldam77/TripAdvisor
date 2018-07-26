@@ -125,33 +125,65 @@ namespace TripAdvisor.Models
    return foundFood;
  }
 
-public static List<Food> FindByName(string name)
+ public static List<City> FindByName(string inputName)
+     {
+       List<City> foundCities = new List<City> {};
+       MySqlConnection conn = DB.Connection();
+       conn.Open();
+       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+       cmd.CommandText = @"SELECT * FROM cities WHERE name LIKE @Name;";
+       MySqlParameter searchName = new MySqlParameter();
+       searchName.ParameterName = "@Name";
+       searchName.Value = inputName + "%";
+       cmd.Parameters.Add(searchName);
+       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+       while(rdr.Read())
+       {
+         int id = rdr.GetInt32(0);
+         string name = rdr.GetString(1);
+         int countryId = rdr.GetInt32(2);
+         City foundCity = new City(name, countryId, id);
+         foundCities.Add(foundCity);
+       }
+       conn.Close();
+       if (conn !=null)
+       {
+         conn.Dispose();
+       }
+       return foundCities;
+     }
+
+public List<City> GetCitiesbyFoodId()
 {
-  List<Food> allFood = new List<Food> {};
+  List<City> allCities = new List<City> {};
   MySqlConnection conn = DB.Connection();
   conn.Open();
-  var cmd = conn.CreateCommand() as MySqlCommand;
-  cmd.CommandText = @"SELECT * FROM food WHERE name LIKE @food;";
-  MySqlParameter thisFood = new MySqlParameter();
-  thisFood.ParameterName = "@food";
-  thisFood.Value = name + "%";
-  cmd.Parameters.Add(thisFood);
-  var rdr = cmd.ExecuteReader() as MySqlDataReader;
-  while (rdr.Read())
+  MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+  cmd.CommandText = @"SELECT cities.* FROM food
+  JOIN cities_food ON (food.id = cities_food.food_id)
+  JOIN cities ON (cities_food.city_id = cities.id)
+  WHERE food.id = @foodId;";
+  MySqlParameter myFoodId = new MySqlParameter();
+  myFoodId.ParameterName = "@foodId";
+  myFoodId.Value = this._id;
+  cmd.Parameters.Add(myFoodId);
+  MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+  while(rdr.Read())
   {
-    int foodId = rdr.GetInt32(0);
-    string foodName= rdr.GetString(1);
-    string foodDescription = rdr.GetString(2);
-    Food foundFood = new Food(foodName, foodDescription, foodId);
-    allFood.Add(foundFood);
+    int id = rdr.GetInt32(0);
+    string name = rdr.GetString(1);
+    int countryId = rdr.GetInt32(2);
+    City newCity = new City(name, countryId, id);
+    allCities.Add(newCity);
   }
   conn.Close();
-  if (conn != null)
+  if (conn !=null)
   {
     conn.Dispose();
   }
-  return allFood;
+  return allCities;
 }
+
 
  public static void DeleteAll()
 {
@@ -197,5 +229,8 @@ public void Edit(string newName, string newDescription)
       conn.Dispose();
     }
   }
+
+
+
 }
 }
