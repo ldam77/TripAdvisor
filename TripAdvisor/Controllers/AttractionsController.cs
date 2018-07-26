@@ -14,6 +14,11 @@ namespace TripAdvisor.Controllers
       List<Attraction> allAttractions = Attraction.GetAll();
       return View(allAttractions);
     }
+    [HttpGet("/Attractions/{attractionId}")]
+    public ActionResult Detail(int attractionId)
+    {
+      return View(Attraction.Find(attractionId));
+    }
     [HttpGet("/Attractions/new")]
       public ActionResult CreateForm()
       {

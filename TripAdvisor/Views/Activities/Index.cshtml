@@ -9,11 +9,11 @@
   {
     <h3>No record found</h3>
   }
-  
+
   <ul class="no-bullet">
     @foreach (var activity in Model)
     {
-      <li>@activity.GetName()</li>
+      <li><a href="/Activities/@activity.GetId()/edit">@activity.GetName()</a></li>
     }
   </ul>
 </div>
